@@ -358,6 +358,13 @@ table.score{border-collapse:separate;border-spacing:0;width:100%}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes winIn{0%{transform:scale(.4) rotate(-14deg);opacity:0}100%{transform:none;opacity:1}}
 
+/* ---------- Wasserzeichen ---------- */
+.made{display:flex;justify-content:center;align-items:center;gap:9px;margin-top:34px;font:900 11px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.made b{font:400 15px/1 var(--f-display);letter-spacing:.03em;color:var(--ink);text-transform:none}
+.made .mk{width:15px;height:20px;border:2px solid var(--line);border-radius:4px;background:var(--violet);transform:rotate(-9deg);box-shadow:2px 2px 0 var(--bust)}
+.win-made{font:900 10.5px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.win-made b{font:400 12px/1 var(--f-display);letter-spacing:.03em;color:var(--ink);text-transform:none}
+
 /* ---------- Effekte ---------- */
 #confetti{position:fixed;inset:0;width:100%;height:100%;z-index:60;pointer-events:none}
 #flash{position:fixed;inset:0;z-index:45;background:var(--bust);opacity:0;pointer-events:none}
@@ -388,7 +395,7 @@ table.score{border-collapse:separate;border-spacing:0;width:100%}
     </div>
   </div>
 </header>
-<main class="wrap"><div id="view"></div></main>
+<main class="wrap"><div id="view"></div><footer class="made"><span class="mk" aria-hidden="true"></span>Made by <b>Hatozoro</b></footer></main>
 <div id="sheet-root" hidden></div>
 <div id="win" hidden></div>
 <div id="flash" aria-hidden="true"></div>
@@ -1067,6 +1074,7 @@ function showWin() {
     <div class="win-score">${shared ? 'Punktgleich mit' : 'mit'} ${t[ws[0].id]} Punkten</div>
     <ol class="win-list">${sorted.map(p => `<li style="--pc:${p.color}"><span class="swatch"></span><span class="pl">${sorted.findIndex(q => t[q.id] === t[p.id]) + 1}.</span><span>${esc(p.name)}</span><b>${t[p.id]}</b></li>`).join('')}</ol>
     <div class="win-actions"><button class="btn btn-primary" data-act="rematch">Revanche</button><button class="btn" data-act="go-setup">Neue Spieler</button><button class="btn btn-ghost" data-act="win-close">Schließen</button></div>
+    <div class="win-made">Made by <b>Hatozoro</b></div>
   </div>`;
   w.hidden = false;
 }
@@ -1278,7 +1286,11 @@ if (hot?.ready) hot.ready(start); else start(hot?.data ?? {});
 </script>
 <script>
 if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-  window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => {}); });
+  const hadController = !!navigator.serviceWorker.controller;
+  let reloaded = false;
+  // Neue Version installiert: einmal neu laden, damit sie sofort sichtbar ist (Spielstand bleibt erhalten)
+  navigator.serviceWorker.addEventListener('controllerchange', () => { if (hadController && !reloaded) { reloaded = true; location.reload(); } });
+  window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').then(r => r.update()).catch(() => {}); });
 }
 </script>
 </body>

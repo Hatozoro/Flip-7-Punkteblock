@@ -1,6 +1,6 @@
 // Offline-Speicher für den Flip 7 Punkteblock.
 // Bei Änderungen an der App die Versionsnummer erhöhen, dann holen sich alle Geräte die neue Version.
-const CACHE = 'flip7-v1';
+const CACHE = 'flip7-v2';
 const CORE = [
   './',
   './index.html',
@@ -13,7 +13,7 @@ const CORE = [
 const FONT_HOSTS = ['fonts.googleapis.com', 'fonts.gstatic.com'];
 
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting()));
+  event.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE.map(u => new Request(u, { cache: 'reload' })))).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', event => {

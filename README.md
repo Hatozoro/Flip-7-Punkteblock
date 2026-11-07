@@ -18,6 +18,6 @@ Funktionen: Karten-Rechner, Bust- und Flip-7-Knopf, Sounds (abschaltbar), Sieger
 
 ## Update einspielen
 
-Geänderte Dateien wieder hochladen und in `sw.js` die Versionsnummer (`flip7-v1` → `flip7-v2`) erhöhen. Die Geräte holen sich die neue Version beim übernächsten Öffnen.
+Geänderte Dateien wieder hochladen und in `sw.js` die Versionsnummer (`flip7-v1` → `flip7-v2`) erhöhen. Die Geräte holen sich die neue Version beim nächsten Öffnen automatisch.
 
 Die Spielstände liegen im Speicher des jeweiligen Geräts. Sie werden nicht hochgeladen und verschwinden auch nicht bei einem Update.
