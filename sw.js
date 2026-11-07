@@ -1,6 +1,6 @@
 // Offline-Speicher für den Flip 7 Punkteblock.
 // Bei Änderungen an der App die Versionsnummer erhöhen, dann holen sich alle Geräte die neue Version.
-const CACHE = 'flip7-v2';
+const CACHE = 'flip7-v3';
 const CORE = [
   './',
   './index.html',

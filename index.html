@@ -358,6 +358,122 @@ table.score{border-collapse:separate;border-spacing:0;width:100%}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes winIn{0%{transform:scale(.4) rotate(-14deg);opacity:0}100%{transform:none;opacity:1}}
 
+/* ---------- Startbildschirm ---------- */
+.home{display:grid;gap:22px;max-width:560px;margin:0 auto}
+.hero{display:grid;justify-items:center;text-align:center;gap:12px;padding-top:8px}
+.hero h1{font-size:clamp(36px,10vw,54px);line-height:.95}
+.hero p{margin:0;font-weight:800;color:var(--muted);font-size:17px}
+.hero-cards{position:relative;width:150px;height:150px;animation:deal .7s cubic-bezier(.2,1.4,.4,1)}
+.hero-cards span{position:absolute;left:50%;top:50%;width:84px;height:116px;margin:-58px 0 0 -42px;border:3px solid var(--line);border-radius:12px;display:grid;place-items:center;font:400 56px/1 var(--f-display);box-shadow:4px 4px 0 var(--shadow)}
+.hero-cards span:nth-child(1){background:var(--gold);transform:translate(-30px,6px) rotate(-17deg)}
+.hero-cards span:nth-child(2){background:var(--bust);transform:translate(28px,4px) rotate(13deg)}
+.hero-cards span:nth-child(3){background:var(--violet);color:#fff;transform:rotate(-3deg)}
+@keyframes deal{from{transform:translateY(-24px) scale(.85);opacity:0}to{transform:none;opacity:1}}
+.home-actions{display:grid;gap:12px}
+.home-actions .btn{width:100%}
+.resume{padding:16px 18px;display:grid;gap:12px}
+.resume .lbl{font:900 12px/1.3 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.rs-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.rs-list li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:9px;align-items:center;font-weight:800;font-size:16px}
+.rs-list li span:nth-child(2){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rs-list b{font:400 18px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.row-btns.start{justify-content:flex-start}
+.mitem.danger b{color:var(--bust)}
+.demo .row-btns{justify-content:flex-start}
+
+/* ---------- Avatare & Skins ---------- */
+.ava{position:relative;display:inline-grid;place-items:center;width:var(--s);height:var(--s);border:2.5px solid var(--line);border-radius:calc(var(--s) * .26);overflow:hidden;flex:none;isolation:isolate;background:#E9E3F5;vertical-align:middle}
+.ava::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--skin,#E9E3F5)}
+.ava svg{width:100%;height:100%;display:block}
+.fx-neon{animation:neon 1.6s ease-in-out infinite alternate}
+@keyframes neon{from{box-shadow:0 0 0 1px #FF2BD6,0 0 10px 1px #FF2BD6}to{box-shadow:0 0 0 1px #00E5FF,0 0 15px 2px #00E5FF}}
+.fx-flow::before{background-size:300% 300%;animation:flow 5s linear infinite}
+@keyframes flow{to{background-position:300% 50%}}
+.fx-twinkle::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(#fff 1px,transparent 1.6px) 0 0/13px 13px,radial-gradient(#fff 1px,transparent 1.6px) 6px 7px/19px 19px;animation:twinkle 1.8s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.2}to{opacity:1}}
+.fx-flame::before{background-size:100% 260%;animation:flame 1.1s ease-in-out infinite alternate}
+@keyframes flame{from{background-position:50% 0%}to{background-position:50% 100%}}
+.fx-holo::before{animation:holo 3.5s linear infinite}
+@keyframes holo{to{filter:hue-rotate(360deg)}}
+.fx-shine::after{content:"";position:absolute;inset:-30%;z-index:2;pointer-events:none;background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.75) 50%,transparent 62%);transform:translateX(-110%);animation:shine 2.8s ease-in-out infinite}
+@keyframes shine{0%,45%{transform:translateX(-110%)}100%{transform:translateX(110%)}}
+.fx-dragon{animation:dragon 1.3s ease-in-out infinite alternate}
+@keyframes dragon{from{box-shadow:0 0 5px 1px #FF7A00}to{box-shadow:0 0 16px 4px #FFC530}}
+.pt-top{gap:12px}
+.pt-ava{position:relative;flex:none;display:inline-flex}
+.pt-ava .rank{position:absolute;right:-8px;bottom:-8px;width:21px;height:21px;font-size:11px;background:var(--card);color:var(--ink);z-index:3}
+.pt-ava .crown{position:absolute;left:-11px;top:-15px;transform:rotate(-24deg);width:26px;height:26px;z-index:3}
+.nrow{grid-template-columns:48px minmax(0,1fr) auto}
+.ava-btn{padding:0;border:0;background:none;border-radius:12px;display:inline-flex}
+.ava-btn:active{transform:scale(.94)}
+.lb-name{display:flex;align-items:center;gap:9px}
+.lb-name > span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.win-avas{display:flex;justify-content:center;gap:14px;padding-top:4px}
+.win-avas .ava{transform:rotate(-4deg)}
+.win-list li{grid-template-columns:26px auto minmax(0,1fr) auto auto}
+.chip-gain{font-style:normal;font-weight:900;font-size:12.5px;color:var(--f7);display:inline-flex;align-items:center;gap:3px;white-space:nowrap}
+.win-cases{display:grid;gap:8px}
+.win-note{margin:0;font-size:13px;font-weight:700;color:var(--muted)}
+.chipico{width:16px;height:16px;flex:none;vertical-align:-3px}
+.pill{display:inline-flex;align-items:center;gap:5px;font:900 11px/1 var(--f-body);text-transform:uppercase;letter-spacing:.08em;padding:5px 8px;border-radius:999px;border:2px solid var(--line);background:var(--card-2);color:var(--ink);white-space:nowrap}
+.pill-gold{background:var(--gold);color:#1D1631}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--bust);border:2px solid var(--line);margin-left:4px}
+.lede{margin:-6px 0 0;color:var(--muted);font-weight:700;max-width:62ch}
+.plist{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.pcard{display:flex;align-items:center;gap:14px;padding:12px 14px;text-align:left;color:var(--ink);min-width:0}
+.pcard:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--shadow)}
+.pc-body{display:grid;gap:6px;min-width:0;justify-items:start}
+.pc-body b{font:400 19px/1.1 var(--f-display);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.pc-meta{font-size:13.5px;font-weight:800;color:var(--muted);display:inline-flex;align-items:center;gap:5px;flex-wrap:wrap}
+.prof-hero{padding:18px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 18px;align-items:center}
+.prof-hero > .btn,.prof-hero > .hint{grid-column:1/-1}
+.prof-hero > .hint{text-align:left}
+.ph-body{display:grid;gap:7px;min-width:0}
+.ph-body h1{font-size:clamp(26px,7vw,36px);overflow-wrap:anywhere}
+.ph-stats{margin:0;font-weight:800;color:var(--muted);font-size:14px}
+.ph-chips{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.ph-chips b{font:400 26px/1 var(--f-display)}
+.ph-chips > span:not(.pill){font-weight:800;color:var(--muted)}
+.ph-chips .chipico{width:26px;height:26px}
+@media (max-width:440px){ .prof-hero{grid-template-columns:1fr;justify-items:center;text-align:center} .ph-chips{justify-content:center} .prof-hero > .hint{text-align:center} }
+.skins{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px}
+.sk-tile{display:grid;justify-items:center;gap:5px;padding:10px 6px 9px;border:var(--bw) solid var(--line);border-bottom:6px solid var(--rc);border-radius:12px;background:var(--card);box-shadow:3px 3px 0 var(--shadow);min-width:0}
+.sk-tile.on{outline:3px solid var(--gold);outline-offset:2px}
+.sk-tile.locked{background:var(--card-2);box-shadow:none}
+.sk-lock{width:58px;height:58px;display:grid;place-items:center;border:2.5px dashed var(--muted);border-radius:15px;font:400 24px/1 var(--f-display);color:var(--muted)}
+.sk-name{font-weight:900;font-size:13px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.sk-rar{font:900 10px/1 var(--f-body);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.ava-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(82px,1fr));gap:8px}
+.ava-pick{display:grid;justify-items:center;gap:5px;padding:8px 4px;border:2px solid transparent;border-radius:12px;background:none;font-weight:800;font-size:12.5px;color:var(--ink)}
+.ava-pick.on{border-color:var(--line);background:var(--card-2);box-shadow:3px 3px 0 var(--shadow)}
+.odds{display:grid;gap:9px}
+.odds > div{display:grid;grid-template-columns:14px minmax(0,1fr) auto;gap:2px 10px;align-items:center;font-weight:800}
+.odds i{width:14px;height:14px;border-radius:4px;background:var(--rc);border:2px solid var(--line)}
+.odds em{grid-column:2/-1;font-style:normal;font-size:12.5px;color:var(--muted);font-weight:700}
+/* Kiste öffnen */
+#case{position:fixed;inset:0;z-index:55;display:grid;place-items:center;background:var(--scrim);overflow:hidden;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:calc(16px + env(safe-area-inset-top,0px)) calc(16px + env(safe-area-inset-bottom,0px))}
+.case-card{position:relative;width:min(520px,100%);max-height:100%;overflow:auto;background:var(--card);border:3px solid var(--line);border-radius:18px;box-shadow:8px 8px 0 var(--shadow);padding:20px 18px;display:grid;gap:16px;text-align:center;animation:winIn .5s cubic-bezier(.2,1.5,.4,1);transition:box-shadow .4s}
+.case-card.rev{box-shadow:8px 8px 0 var(--shadow),0 0 0 4px var(--rc),0 0 46px 8px var(--rc)}
+.case-top{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap}
+.reel{position:relative;overflow:hidden;border:var(--bw) solid var(--line);border-radius:12px;background:var(--card-2);padding:12px 0}
+.reel-track{display:flex;gap:8px;will-change:transform}
+.rt{flex:none;width:70px;display:grid;justify-items:center;gap:7px}
+.rt i{display:block;width:54px;height:5px;border-radius:3px;background:var(--rc);border:1.5px solid var(--line)}
+.rt.won .ava{outline:3px solid var(--rc);outline-offset:2px}
+.reel-marker{position:absolute;left:50%;top:0;bottom:0;width:3px;margin-left:-1.5px;background:var(--gold);box-shadow:0 0 0 1.5px var(--line)}
+.reel-marker::before,.reel-marker::after{content:"";position:absolute;left:50%;margin-left:-8px;border:8px solid transparent}
+.reel-marker::before{top:-1px;border-top-color:var(--gold)}
+.reel-marker::after{bottom:-1px;border-bottom-color:var(--gold)}
+.case-result{display:grid;justify-items:center;gap:9px;animation:pop .5s cubic-bezier(.3,1.8,.5,1)}
+.rar-pill{font:400 13px/1 var(--f-display);letter-spacing:.06em;text-transform:uppercase;padding:7px 12px;border-radius:999px;border:2px solid var(--line);background:var(--rc);color:#fff;text-shadow:1px 1px 0 rgba(0,0,0,.35)}
+.cr-name{margin:0;font:400 26px/1.1 var(--f-display)}
+.cr-note{margin:0;font-weight:700;color:var(--muted)}
+.cr-note b{color:var(--ink)}
+.cr-chips{margin:0;font-weight:800;color:var(--muted);font-size:13.5px;display:inline-flex;gap:6px;align-items:center}
+.cr-ava .ava{box-shadow:5px 5px 0 var(--shadow)}
+.case-btn{width:100%}
+
 /* ---------- Wasserzeichen ---------- */
 .made{display:flex;justify-content:center;align-items:center;gap:9px;margin-top:34px;font:900 11px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .made b{font:400 15px/1 var(--f-display);letter-spacing:.03em;color:var(--ink);text-transform:none}
@@ -384,7 +500,7 @@ table.score{border-collapse:separate;border-spacing:0;width:100%}
 <body>
 <header class="top">
   <div class="top-in">
-    <button class="logo" data-act="go-game" aria-label="Zum Spiel">
+    <button class="logo" data-act="go-home" aria-label="Zum Startbildschirm">
       <span class="lcards" aria-hidden="true"><span></span><span>7</span></span>
       <span class="lword">Flip 7<em>Punkteblock</em></span>
     </button>
@@ -398,6 +514,7 @@ table.score{border-collapse:separate;border-spacing:0;width:100%}
 <main class="wrap"><div id="view"></div><footer class="made"><span class="mk" aria-hidden="true"></span>Made by <b>Hatozoro</b></footer></main>
 <div id="sheet-root" hidden></div>
 <div id="win" hidden></div>
+<div id="case" hidden></div>
 <div id="flash" aria-hidden="true"></div>
 <canvas id="confetti" hidden aria-hidden="true"></canvas>
 <div id="toast" role="status" aria-live="polite" hidden></div>
@@ -406,6 +523,7 @@ table.score{border-collapse:separate;border-spacing:0;width:100%}
 (() => {
 'use strict';
 const KEY = 'flip7-punkteblock-v1';
+const VKEY = 'flip7-view';
 const MAX_PLAYERS = 12;
 const COLORS = ['#E63946','#2A86E0','#F2A100','#22A86A','#8E5CF7','#F062A8','#0E9F9F','#F2711C','#4A55C9','#9C6B2F','#86B300','#B0306A'];
 const $ = (s, r = document) => r.querySelector(s);
@@ -425,7 +543,9 @@ const ICON = {
   card: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="5" y="3.5" width="12" height="17" rx="2" transform="rotate(-10 11 12)" fill="none" stroke="currentColor" stroke-width="2.2"/><rect x="8" y="3.5" width="12" height="17" rx="2" transform="rotate(8 14 12)" fill="currentColor"/></svg>',
   up: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   down: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-  x: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>'
+  x: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>',
+  chip: '<svg class="chipico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#F2A900" stroke="#1D1631" stroke-width="2"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="#1D1631" stroke-width="2"/><circle cx="12" cy="12" r="5.5" fill="#FFD84D" stroke="#1D1631" stroke-width="1.6"/></svg>',
+  chest: '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 10a9 5.5 0 0 1 18 0z" fill="currentColor" opacity=".3"/><path d="M3 10a9 5.5 0 0 1 18 0" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="10" width="18" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 14h18" stroke="currentColor" stroke-width="2"/><rect x="10" y="12" width="4" height="5" rx="1" fill="currentColor"/></svg>'
 };
 const dealTag = '<span class="tag-deal" title="Teilt in dieser Runde die Karten aus">' + ICON.card + 'gibt</span>';
 
@@ -493,6 +613,14 @@ const sfx = (() => {
       for (let i = 0; i < 14; i++) noise(t + i * 0.032 + Math.random() * 0.01, 0.035, 0.22, 'bandpass', 2200 + Math.random() * 1800, 1.1);
       noise(t + 0.5, 0.09, 0.3, 'lowpass', 900, 0.7);
     },
+    tick() { if (!ctx()) return; osc('square', 1500 + Math.random() * 400, c.currentTime, 0.025, 0.045); },
+    reveal(r) {
+      if (!ctx()) return;
+      if (r >= 5) { this.win(); return; }
+      const t = c.currentTime, seq = { 0: ['E5', 'A5'], 1: ['E5', 'A5'], 2: ['E5', 'A5', 'C#6'], 3: ['E5', 'A5', 'C#6', 'E6'], 4: ['A5', 'C#6', 'E6', 'A6', 'C#7', 'E7'] }[r];
+      seq.forEach((n, i) => osc(r >= 4 ? 'square' : 'triangle', mf(nt(n)), t + i * 0.08, 0.3, r >= 4 ? 0.07 : 0.1));
+      if (r >= 3) noise(t + seq.length * 0.08, 0.6, 0.07, 'highpass', 7000);
+    },
     win() {
       if (!ctx()) return;
       const t = c.currentTime + 0.05, b = 60 / 152;
@@ -529,8 +657,9 @@ function newGame(names, target, startDealer) {
   return { id: uid(), demo: false, target, players: mkPlayers(names), startDealer, rounds: [], finished: false, winners: [], startedAt: Date.now() };
 }
 function demoGame() {
-  const g = newGame(['Mara','Jonas','Elif','Tobi'], 200, 0);
+  const g = newGame(['Habib','Hazoshin','Hatozoro','Habibinho'], 200, 0);
   g.demo = true;
+  [['samurai', 'gold'], ['ninja', 'neon'], ['wikinger', 'holo'], ['pirat', 'streifen']].forEach(([a, sk], i) => { g.players[i].ava = { avatar: a, skin: sk }; });
   const rows = ['23 B 31 18', '41 27 B 35', 'B 52* 29 22', '38 19 44 B', '30 B 26 47', '26 40 33 25'];
   g.rounds = rows.map(r => {
     const parts = r.split(' '), sc = {};
@@ -539,16 +668,34 @@ function demoGame() {
   });
   return g;
 }
-function defaults() { return { sound: true, view: 'game', tab: 'enter', game: demoGame(), draft: {}, history: [], setup: null }; }
+function defaults() { return { sound: true, view: 'home', tab: 'enter', mode: 'real', game: null, draft: {}, stash: null, history: [], profiles: {}, setup: null }; }
 function load() { try { const raw = localStorage.getItem(KEY); return raw ? JSON.parse(raw) : null; } catch (e) { return null; } }
-function persist() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+function persist() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} try { sessionStorage.setItem(VKEY, S.view); } catch (e) {} }
 function normalize(x) {
-  if (!x || typeof x !== 'object' || (!x.game && !x.setup)) return defaults();
+  if (!x || typeof x !== 'object') return defaults();
   x.sound = x.sound !== false; x.draft = x.draft || {}; x.history = Array.isArray(x.history) ? x.history : [];
-  x.tab = x.tab || 'enter'; x.view = x.view || 'game';
-  if (x.view === 'game' && !x.game) x.view = 'setup';
+  x.tab = x.tab || 'enter'; x.mode = x.mode === 'demo' ? 'demo' : 'real'; x.stash = x.stash || null;
+  x.profiles = x.profiles && typeof x.profiles === 'object' ? x.profiles : {};
+  // Früher war das Beispiel das Hauptspiel: das räumen wir weg
+  if (x.mode === 'real' && x.game && x.game.demo) { x.game = null; x.draft = {}; }
+  // Frisch geöffnet: immer Startbildschirm. Nur ein Neuladen (z. B. nach Update) bleibt, wo man war.
+  let resume = null; try { resume = sessionStorage.getItem(VKEY); } catch (e) {}
+  if (!resume) { leaveDemo(x); x.view = 'home'; }
+  if (!['home', 'setup', 'game', 'board', 'players', 'profile'].includes(x.view)) x.view = 'home';
+  if (x.view === 'profile' && !x.profiles[x.profileKey]) x.view = 'players';
+  if (x.view === 'game' && !x.game) x.view = 'home';
   if (x.view === 'setup' && !x.setup) x.setup = initSetup(x);
   return x;
+}
+/* Das Beispiel läuft getrennt: das echte Spiel wird solange zur Seite gelegt */
+function enterDemo() {
+  if (S.mode !== 'demo') { S.stash = { game: S.game, draft: S.draft }; S.mode = 'demo'; }
+  S.game = demoGame(); S.draft = {}; S.tab = 'enter'; S.view = 'game'; lastTotals = null;
+}
+function leaveDemo(x = S) {
+  if (!x || x.mode !== 'demo') return;
+  const st = x.stash || {};
+  x.game = st.game || null; x.draft = st.draft || {}; x.stash = null; x.mode = 'real'; lastTotals = null;
 }
 
 const totals = g => { const t = {}; g.players.forEach(p => t[p.id] = 0); g.rounds.forEach(r => g.players.forEach(p => { t[p.id] += (r.sc[p.id] && r.sc[p.id].p) || 0; })); return t; };
@@ -563,7 +710,7 @@ function leaders(g) { const t = totals(g); const max = Math.max(...g.players.map
 function syncFinish(g) {
   const was = g.finished, w = evaluate(g);
   g.winners = w; g.finished = w.length > 0;
-  if (!g.demo) { if (g.finished) upsertHistory(g); else if (was) S.history = S.history.filter(h => h.id !== g.id); }
+  if (!g.demo) { if (g.finished) upsertHistory(g); else if (was) S.history = S.history.filter(h => h.id !== g.id); syncRewards(g); }
   return g.finished && !was;
 }
 function upsertHistory(g) {
@@ -577,11 +724,328 @@ function upsertHistory(g) {
 }
 function getDraft(pid) { if (!S.draft[pid]) S.draft[pid] = { v: '', b: false, f: false, cards: null }; return S.draft[pid]; }
 function initSetup(base = S) {
-  const g = base && base.game;
-  const names = g && !g.demo ? g.players.map(p => p.name) : ['', '', ''];
-  return { names, target: (g && g.target) || 200, dealer: 0 };
+  const g = base && base.game && !base.game.demo ? base.game : null;
+  const last = base && base.history && base.history[0];
+  const names = g ? g.players.map(p => p.name) : last ? last.players.map(p => p.name) : ['', '', ''];
+  return { names, avas: [], target: (g && g.target) || (last && last.target) || 200, dealer: 0 };
 }
 const nameList = arr => arr.length <= 1 ? (arr[0] || '') : arr.slice(0, -1).join(', ') + ' & ' + arr[arr.length - 1];
+
+/* ================= Avatare (selbst gezeichnet, 100×100) ================= */
+const INK = '#1D1631';
+const O = `stroke="${INK}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"`;
+const TONE = { l: '#F6CFA8', m: '#E0A878', t: '#C98B5E', d: '#8D5A3B' };
+const P = {
+  body: c => `<path d="M14 104 C14 81 29 71 50 71 C71 71 86 81 86 104 Z" fill="${c}" ${O}/>`,
+  neck: c => `<path d="M43 58 L43 74 L57 74 L57 58 Z" fill="${c}" ${O}/>`,
+  head: c => `<circle cx="50" cy="44" r="21" fill="${c}" ${O}/>`,
+  eyes: (y = 46, c = INK) => `<circle cx="42" cy="${y}" r="2.8" fill="${c}"/><circle cx="58" cy="${y}" r="2.8" fill="${c}"/>`,
+  smile: `<path d="M44 54 Q50 59.5 56 54" fill="none" ${O}/>`,
+  flat: `<path d="M45 55.5 L55 55.5" fill="none" ${O}/>`,
+  smirk: `<path d="M44 55 Q51 57.5 57 52.5" fill="none" ${O}/>`,
+  grin: `<path d="M43 52.5 Q50 61 57 52.5 Z" fill="#fff" ${O}/>`,
+  brows: `<path d="M37 39.5 L46 42 M63 39.5 L54 42" fill="none" ${O}/>`
+};
+function star(cx, cy, r, fill) {
+  const pts = [];
+  for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * 0.45 : r; pts.push((cx + Math.cos(a) * rr).toFixed(1) + ',' + (cy + Math.sin(a) * rr).toFixed(1)); }
+  return `<polygon points="${pts.join(' ')}" fill="${fill}" stroke="${INK}" stroke-width="1.5" stroke-linejoin="round"/>`;
+}
+const AVATARS = [
+  { id: 'samurai', name: 'Samurai', svg:
+    `<path d="M83 62 L90 44" stroke="${INK}" stroke-width="8" stroke-linecap="round"/><path d="M83 62 L90 44" stroke="#7A2E2E" stroke-width="3.5" stroke-linecap="round"/>` +
+    `<ellipse cx="82" cy="64" rx="6.5" ry="2.8" transform="rotate(-70 82 64)" fill="#D9A520" ${O}/>` +
+    P.neck(TONE.m) + P.body('#B3263A') + `<path d="M37 73 L50 90 L63 73" fill="none" stroke="#F4EEDD" stroke-width="5"/>` +
+    P.head(TONE.m) +
+    `<path d="M29 45 C28 27 39 22 50 22 C61 22 72 27 71 45 C67 36 59 33 50 33 C41 33 33 36 29 45 Z" fill="${INK}" ${O}/>` +
+    `<path d="M45 23 C42 13 58 13 55 23 Z" fill="${INK}" ${O}/>` +
+    `<path d="M29.5 39 C40 34 60 34 70.5 39" fill="none" stroke="#F4EEDD" stroke-width="4.5"/><path d="M70 39 L80 35 M70 40 L78 46" stroke="#F4EEDD" stroke-width="3.5" stroke-linecap="round"/>` +
+    P.brows + P.eyes(47) + P.flat },
+  { id: 'ninja', name: 'Ninja', svg:
+    P.neck('#2B2D42') + P.body('#2B2D42') + star(62, 90, 6, '#C0C7D1') + P.head('#2B2D42') +
+    `<rect x="31" y="38" width="38" height="13" rx="6.5" fill="${TONE.m}" ${O}/>` +
+    `<path d="M37.5 41 L46 43.5 M62.5 41 L54 43.5" fill="none" stroke="${INK}" stroke-width="2.5" stroke-linecap="round"/>` + P.eyes(46.5) +
+    `<path d="M29.5 33 C40 28 60 28 70.5 33" fill="none" stroke="#E63946" stroke-width="5"/>` +
+    `<path d="M30 33 C22 30 17 35 8 31 M30 34 C23 38 19 43 10 43" fill="none" stroke="#E63946" stroke-width="4" stroke-linecap="round"/>` },
+  { id: 'pirat', name: 'Pirat', svg:
+    P.neck(TONE.t) + P.body('#2A5DB0') + `<path d="M40 72 L50 86 L60 72 Z" fill="#F4EEDD" ${O}/><circle cx="35" cy="88" r="2.2" fill="#F2B705"/><circle cx="65" cy="88" r="2.2" fill="#F2B705"/>` +
+    P.head(TONE.t) + `<path d="M29 38 L71 50" stroke="${INK}" stroke-width="2.5"/><ellipse cx="42" cy="46" rx="6" ry="5" fill="${INK}"/><circle cx="58" cy="46" r="2.8" fill="${INK}"/>` + P.grin +
+    `<circle cx="71" cy="54" r="3" fill="none" stroke="#F2B705" stroke-width="2.5"/>` +
+    `<path d="M31 33 C32 13 68 13 69 33 Z" fill="${INK}" ${O}/><path d="M17 34 C30 24 70 24 83 34 C70 30 30 30 17 34 Z" fill="${INK}" ${O}/>` +
+    `<circle cx="50" cy="21" r="3.6" fill="#F4EEDD"/><path d="M44.5 26 L55.5 30 M55.5 26 L44.5 30" stroke="#F4EEDD" stroke-width="2" stroke-linecap="round"/>` },
+  { id: 'wikinger', name: 'Wikinger', svg:
+    `<path d="M31 33 C18 31 13 21 15 9 C21 18 26 22 34 25 Z" fill="#F4E9D0" ${O}/><path d="M69 33 C82 31 87 21 85 9 C79 18 74 22 66 25 Z" fill="#F4E9D0" ${O}/>` +
+    P.neck(TONE.l) + P.body('#7A4A24') + `<path d="M22 87 C27 72 73 72 78 87 C68 82 32 82 22 87 Z" fill="#D9C7A7" ${O}/>` +
+    P.head(TONE.l) +
+    `<path d="M30 47 C30 66 40 77 50 77 C60 77 70 66 70 47 C64 55 58 57 50 57 C42 57 36 55 30 47 Z" fill="#E07A2F" ${O}/><path d="M41 55 C46 51 54 51 59 55" fill="none" ${O}/>` +
+    P.eyes(47) +
+    `<path d="M28 41 C28 21 72 21 72 41 Z" fill="#9AA5B1" ${O}/><rect x="27" y="37" width="46" height="6" rx="3" fill="#6B7684" ${O}/><rect x="47.5" y="40" width="5" height="11" rx="2" fill="#6B7684" ${O}/>` +
+    `<circle cx="36" cy="40" r="1.3" fill="${INK}"/><circle cx="64" cy="40" r="1.3" fill="${INK}"/>` },
+  { id: 'astro', name: 'Astronaut', svg:
+    P.body('#ECEFF4') + `<rect x="39" y="83" width="22" height="12" rx="2.5" fill="#FF7A1A" ${O}/><circle cx="45" cy="89" r="2" fill="${INK}"/><circle cx="55" cy="89" r="2" fill="#fff"/>` +
+    `<path d="M66 22 L72 12" stroke="${INK}" stroke-width="3" stroke-linecap="round"/><circle cx="73" cy="11" r="3.2" fill="#FF3D57" ${O}/>` +
+    `<circle cx="50" cy="44" r="27" fill="#ECEFF4" ${O}/><rect x="30" y="30" width="40" height="29" rx="14.5" fill="#1B2A4A" ${O}/>` +
+    `<path d="M36 41 C37 36 42 33 48 33" fill="none" stroke="#7FD8FF" stroke-width="3" stroke-linecap="round"/><circle cx="62" cy="51" r="2" fill="#7FD8FF"/>` +
+    `<rect x="20" y="40" width="5" height="9" rx="2" fill="#FF7A1A" ${O}/><rect x="75" y="40" width="5" height="9" rx="2" fill="#FF7A1A" ${O}/>` },
+  { id: 'magier', name: 'Magier', svg:
+    P.neck(TONE.l) + P.body('#5B3DF5') + star(65, 90, 5, '#FFD23F') + P.head(TONE.l) +
+    `<path d="M31 50 C31 73 42 88 50 95 C58 88 69 73 69 50 C63 58 57 60 50 60 C43 60 37 58 31 50 Z" fill="#F4F1E8" ${O}/>` +
+    `<path d="M40 56 C45 52 55 52 60 56 C55 58.5 45 58.5 40 56 Z" fill="#E6E1D3" ${O}/>` + P.eyes(46) +
+    `<path d="M37 40 L46 41.5 M63 40 L54 41.5" stroke="#F4F1E8" stroke-width="4" stroke-linecap="round"/>` +
+    `<path d="M29 31 C37 23 43 9 60 1 C57 12 62 23 71 31 Z" fill="#5B3DF5" ${O}/>` + star(52, 18, 4, '#FFD23F') + star(61, 25, 3, '#FFD23F') +
+    `<ellipse cx="50" cy="31" rx="27" ry="5.5" fill="#4527C9" ${O}/>` },
+  { id: 'ritter', name: 'Ritter', svg:
+    `<path d="M51 22 C47 10 57 1 68 3 C62 8 60 14 60 22 Z" fill="#E63946" ${O}/>` +
+    P.body('#9AA5B1') + `<path d="M38 74 L62 74 L61 104 L39 104 Z" fill="#C0392B" ${O}/><path d="M50 79 L50 97 M43 86 L57 86" stroke="#F4EEDD" stroke-width="3.5" stroke-linecap="round"/>` +
+    `<path d="M28 68 L28 40 C28 19 72 19 72 40 L72 68 C64 72 36 72 28 68 Z" fill="#B8C2CC" ${O}/>` +
+    `<rect x="33" y="40" width="34" height="5" rx="2.5" fill="${INK}"/><path d="M50 21 L50 70" stroke="${INK}" stroke-width="2" opacity=".35"/>` +
+    `<g fill="${INK}"><circle cx="40" cy="55" r="1.4"/><circle cx="44" cy="58" r="1.4"/><circle cx="40" cy="61" r="1.4"/><circle cx="60" cy="55" r="1.4"/><circle cx="56" cy="58" r="1.4"/><circle cx="60" cy="61" r="1.4"/></g>` },
+  { id: 'cowboy', name: 'Cowboy', svg:
+    P.neck(TONE.t) + P.body('#3E6FA8') + `<path d="M37 72 L63 72 L50 87 Z" fill="#E63946" ${O}/>` + P.head(TONE.t) + P.eyes(47) +
+    `<path d="M41 54 C45 51 55 51 59 54 C55 57 45 57 41 54 Z" fill="#6B3F1E" ${O}/>` +
+    `<path d="M32 34 C30 17 38 12 44 16 C47 14 53 14 56 16 C62 12 70 17 68 34 Z" fill="#A0693A" ${O}/><path d="M32.5 30 L67.5 30" stroke="${INK}" stroke-width="4"/>` +
+    `<path d="M13 33 C22 41 78 41 87 33 C77 29 23 29 13 33 Z" fill="#8B5A2B" ${O}/>` },
+  { id: 'vampir', name: 'Vampir', svg:
+    `<path d="M21 78 C23 57 25 41 30 30 L42 61 L58 61 L70 30 C75 41 77 57 79 78 Z" fill="#8E1B2B" ${O}/>` +
+    P.neck('#E8E1F0') + P.body(INK) + `<path d="M41 72 L50 86 L59 72 Z" fill="#F4EEDD" ${O}/><circle cx="50" cy="77" r="2.6" fill="#E63946" ${O}/>` +
+    P.head('#E8E1F0') +
+    `<path d="M29 43 C28 25 40 21 50 21 C60 21 72 25 71 43 C66 34 58 31 50 39 C42 31 34 34 29 43 Z" fill="${INK}" ${O}/>` +
+    P.brows + P.eyes(47, '#E63946') +
+    `<path d="M44 54 Q50 57 56 54" fill="none" ${O}/><path d="M46 55 L47.3 59 L48.6 55.6 M51.4 55.6 L52.7 59 L54 55" fill="#fff" stroke="${INK}" stroke-width="1.4" stroke-linejoin="round"/>` },
+  { id: 'pharao', name: 'Pharao', svg:
+    `<path d="M27 34 L19 80 L36 80 L37 52 L63 52 L64 80 L81 80 L73 34 Z" fill="#2A5DB0" ${O}/>` +
+    `<path d="M22 58 L36 58 M21 66 L36 66 M20 74 L36 74 M64 58 L78 58 M64 66 L79 66 M64 74 L80 74" stroke="#F2B705" stroke-width="3"/>` +
+    P.neck(TONE.t) + P.body('#F4EEDD') +
+    `<path d="M25 84 C31 73 69 73 75 84 C66 92 34 92 25 84 Z" fill="#F2B705" ${O}/><path d="M31 83.5 C39 88 61 88 69 83.5" fill="none" stroke="#2A5DB0" stroke-width="3"/>` +
+    P.head(TONE.t) +
+    `<path d="M28 45 C27 24 73 24 72 45 L66 43 C63 33 37 33 34 43 Z" fill="#2A5DB0" ${O}/><path d="M33 31 C42 27 58 27 67 31" fill="none" stroke="#F2B705" stroke-width="3"/>` +
+    `<path d="M47.5 33 C47 26 53 26 52.5 33 Z" fill="#F2B705" ${O}/>` +
+    `<path d="M36 47 L46 47 M54 47 L64 47" stroke="${INK}" stroke-width="2"/>` + P.eyes(47) + P.flat +
+    `<rect x="46" y="60" width="8" height="12" rx="2" fill="#2A5DB0" ${O}/>` },
+  { id: 'punk', name: 'Punk', svg:
+    P.neck(TONE.l) + P.body('#2B2B2B') + `<path d="M50 74 L50 104" stroke="#C0C7D1" stroke-width="2.5"/>` +
+    `<g fill="#C0C7D1" stroke="${INK}" stroke-width="1"><circle cx="27" cy="85" r="2.2"/><circle cx="33" cy="80" r="2.2"/><circle cx="73" cy="85" r="2.2"/><circle cx="67" cy="80" r="2.2"/></g>` +
+    P.head(TONE.l) +
+    `<path d="M41 31 L35 6 L45 20 L48 0 L53 19 L61 4 L60 22 L70 13 L63 32 Z" fill="#39D353" ${O}/>` +
+    P.brows + P.eyes(47) + P.smirk +
+    `<circle cx="52.5" cy="51.5" r="2.3" fill="none" stroke="#C0C7D1" stroke-width="1.8"/><circle cx="29" cy="50" r="2" fill="#C0C7D1" ${O}/>` },
+  { id: 'hacker', name: 'Hacker', svg:
+    `<path d="M24 70 C19 42 30 17 50 17 C70 17 81 42 76 70 Z" fill="#3D5A66" ${O}/>` +
+    P.body('#2F3E46') + `<path d="M44 73 L43 88 M56 73 L57 88" stroke="#F4EEDD" stroke-width="2.5" stroke-linecap="round"/>` +
+    P.head(TONE.m) +
+    `<path d="M29 47 C27 28 40 23 50 23 C60 23 73 28 71 47 C67 35 59 31 50 31 C41 31 33 35 29 47 Z" fill="#3D5A66" ${O}/>` +
+    `<rect x="33" y="41" width="14" height="9" rx="2" fill="#39FF88" ${O}/><rect x="53" y="41" width="14" height="9" rx="2" fill="#39FF88" ${O}/><path d="M47 45 L53 45" stroke="${INK}" stroke-width="2.5"/>` +
+    `<path d="M36 44 L40 44 M56 44 L60 44" stroke="#D7FFE6" stroke-width="2" stroke-linecap="round"/>` + P.smirk },
+  { id: 'detektiv', name: 'Detektiv', svg:
+    P.neck(TONE.l) + P.body('#C9A66B') +
+    `<path d="M37 73 L32 87 L44 84 Z M63 73 L68 87 L56 84 Z" fill="#B38F55" ${O}/><path d="M37 73 L50 94 L63 73" fill="none" ${O}/>` +
+    P.head(TONE.l) + P.eyes(47) +
+    `<path d="M40 54 C45 50 55 50 60 54 C56 57 44 57 40 54 Z" fill="#7A4A24" ${O}/>` +
+    `<path d="M56 57 L66 61" stroke="${INK}" stroke-width="3" stroke-linecap="round"/><path d="M64 58 L72 58 L72 67 C72 69 64 69 64 67 Z" fill="#6B3F1E" ${O}/>` +
+    `<path d="M31 35 C30 19 40 15 50 19 C60 15 70 19 69 35 Z" fill="#5C4E42" ${O}/><path d="M31.5 31 L68.5 31" stroke="${INK}" stroke-width="4"/>` +
+    `<path d="M18 36 C30 41 70 41 82 36 C72 31 28 31 18 36 Z" fill="#4A3F35" ${O}/>` },
+  { id: 'koenig', name: 'König', svg:
+    P.neck(TONE.m) + P.body('#B3263A') +
+    `<path d="M21 88 C27 73 73 73 79 88 C69 83 31 83 21 88 Z" fill="#F4EEDD" ${O}/><g fill="${INK}"><circle cx="33" cy="80" r="1.6"/><circle cx="45" cy="78" r="1.6"/><circle cx="57" cy="78" r="1.6"/><circle cx="68" cy="81" r="1.6"/></g>` +
+    P.head(TONE.m) +
+    `<path d="M31 48 C31 64 40 72 50 72 C60 72 69 64 69 48 C64 55 57 58 50 58 C43 58 36 55 31 48 Z" fill="#6B3F1E" ${O}/><path d="M45 61.5 Q50 64.5 55 61.5" fill="none" ${O}/>` +
+    P.eyes(46) +
+    `<path d="M30 34 L30 15 L38 24 L44 11 L50 22 L56 11 L62 24 L70 15 L70 34 Z" fill="#F2B705" ${O}/><circle cx="50" cy="29" r="3" fill="#E63946" ${O}/><circle cx="38" cy="30" r="2" fill="#2A86E0"/><circle cx="62" cy="30" r="2" fill="#2A86E0"/>` },
+  { id: 'alien', name: 'Alien', svg:
+    `<path d="M40 27 L33 10 M60 27 L67 10" stroke="${INK}" stroke-width="3" stroke-linecap="round"/><circle cx="33" cy="9" r="4" fill="#FF2BD6" ${O}/><circle cx="67" cy="9" r="4" fill="#FF2BD6" ${O}/>` +
+    P.neck('#5DBB6E') + P.body('#B8C2CC') + `<path d="M34 77 C40 83 60 83 66 77" fill="none" stroke="#5B3DF5" stroke-width="4"/>` +
+    `<ellipse cx="50" cy="43" rx="24" ry="22" fill="#7BD389" ${O}/>` +
+    `<ellipse cx="40" cy="45" rx="7.5" ry="4.8" transform="rotate(28 40 45)" fill="${INK}"/><ellipse cx="60" cy="45" rx="7.5" ry="4.8" transform="rotate(-28 60 45)" fill="${INK}"/>` +
+    `<circle cx="38" cy="43" r="1.5" fill="#fff"/><circle cx="58" cy="43" r="1.5" fill="#fff"/><path d="M47 56 Q50 58 53 56" fill="none" ${O}/>` },
+  { id: 'robo', name: 'Roboter', svg:
+    `<path d="M50 24 L50 12" stroke="${INK}" stroke-width="3"/><circle cx="50" cy="10" r="4" fill="#FF3D57" ${O}/>` +
+    P.neck('#6B7684') + P.body('#8E9AAF') +
+    `<rect x="38" y="82" width="24" height="12" rx="2" fill="#2B2D42" ${O}/><circle cx="44" cy="88" r="2" fill="#39FF88"/><circle cx="50" cy="88" r="2" fill="#FFD23F"/><circle cx="56" cy="88" r="2" fill="#FF3D57"/>` +
+    `<rect x="21" y="38" width="7" height="14" rx="2" fill="#6B7684" ${O}/><rect x="72" y="38" width="7" height="14" rx="2" fill="#6B7684" ${O}/>` +
+    `<rect x="27" y="24" width="46" height="38" rx="9" fill="#B8C2CC" ${O}/>` +
+    `<rect x="34" y="35" width="12" height="9" rx="2.5" fill="#00E5FF" ${O}/><rect x="54" y="35" width="12" height="9" rx="2.5" fill="#00E5FF" ${O}/>` +
+    `<rect x="37" y="50" width="26" height="6" rx="2" fill="${INK}"/><path d="M43 50 L43 56 M50 50 L50 56 M57 50 L57 56" stroke="#8E9AAF" stroke-width="1.5"/>` +
+    `<circle cx="32" cy="29" r="1.4" fill="${INK}"/><circle cx="68" cy="29" r="1.4" fill="${INK}"/>` }
+];
+const AVA = Object.fromEntries(AVATARS.map(a => [a.id, a]));
+
+/* ================= Skins & Seltenheit ================= */
+const RAR = [
+  { n: 'Start', c: '#9A94AD', w: 0, refund: 0 },
+  { n: 'Gewöhnlich', c: '#9A94AD', w: 50, refund: 30 },
+  { n: 'Ungewöhnlich', c: '#2FB36B', w: 27, refund: 60 },
+  { n: 'Selten', c: '#2A86E0', w: 14, refund: 120 },
+  { n: 'Episch', c: '#9B4DFF', w: 7, refund: 250 },
+  { n: 'Legendär', c: '#FF9F1A', w: 2, refund: 600 }
+];
+const SKINS = [
+  { id: 'basis', name: 'Basis', r: 0, bg: '#E9E3F5' },
+  { id: 'kirsche', name: 'Kirsche', r: 1, bg: '#E8505B' },
+  { id: 'ozean', name: 'Ozean', r: 1, bg: '#3A86FF' },
+  { id: 'wiese', name: 'Wiese', r: 1, bg: '#38B36B' },
+  { id: 'sonne', name: 'Sonne', r: 1, bg: '#FFC233' },
+  { id: 'flieder', name: 'Flieder', r: 1, bg: '#B490FF' },
+  { id: 'koralle', name: 'Koralle', r: 1, bg: '#FF8A65' },
+  { id: 'petrol', name: 'Petrol', r: 1, bg: '#14A3A3' },
+  { id: 'schiefer', name: 'Schiefer', r: 1, bg: '#6B7A90' },
+  { id: 'streifen', name: 'Wespe', r: 2, bg: 'repeating-linear-gradient(45deg,#1D1631 0 7px,#FFD23F 7px 14px)' },
+  { id: 'punkte', name: 'Konfetti', r: 2, bg: 'radial-gradient(#fff 2.2px,transparent 2.7px) 0 0/10px 10px,#3A86FF' },
+  { id: 'karo', name: 'Zielflagge', r: 2, bg: 'conic-gradient(#1D1631 25%,#F2F2F2 0 50%,#1D1631 0 75%,#F2F2F2 0) 0 0/14px 14px' },
+  { id: 'zickzack', name: 'Zickzack', r: 2, bg: 'linear-gradient(135deg,#7B2FF7 25%,transparent 25%) -7px 0/14px 14px,linear-gradient(225deg,#7B2FF7 25%,transparent 25%) -7px 0/14px 14px,linear-gradient(315deg,#7B2FF7 25%,transparent 25%) 0 0/14px 14px,linear-gradient(45deg,#7B2FF7 25%,#C9A7FF 25%) 0 0/14px 14px' },
+  { id: 'tarn', name: 'Tarnung', r: 2, bg: 'radial-gradient(circle at 20% 30%,#3F4E22 0 17%,transparent 18%),radial-gradient(circle at 72% 62%,#2F3A1C 0 20%,transparent 21%),radial-gradient(circle at 38% 82%,#9A8A58 0 14%,transparent 15%),radial-gradient(circle at 86% 16%,#9A8A58 0 13%,transparent 14%),#6B7F3A' },
+  { id: 'bonbon', name: 'Bonbon', r: 2, bg: 'repeating-linear-gradient(-45deg,#FF8FB1 0 6px,#FFF4F7 6px 12px)' },
+  { id: 'gold', name: 'Gold', r: 3, bg: 'linear-gradient(135deg,#8C5A00,#FFD54A 30%,#FFF3B0 45%,#E0A800 60%,#7A4E00)' },
+  { id: 'silber', name: 'Silber', r: 3, bg: 'linear-gradient(135deg,#5E6470,#E8ECF2 35%,#FFFFFF 48%,#A9B0BC 62%,#4B505B)' },
+  { id: 'sunset', name: 'Sonnenuntergang', r: 3, bg: 'linear-gradient(160deg,#FF5E62,#FF9966 45%,#7F00FF)' },
+  { id: 'polar', name: 'Polarlicht', r: 3, bg: 'linear-gradient(160deg,#0B1D3A,#1B998B 45%,#9CFF9C 70%,#5B3DF5)' },
+  { id: 'lava', name: 'Lava', r: 3, bg: 'radial-gradient(circle at 30% 75%,#FFD23F 0 10%,transparent 32%),linear-gradient(160deg,#2B0F0F,#C1121F 55%,#FF7B00)' },
+  { id: 'neon', name: 'Neon', r: 4, bg: 'linear-gradient(#FF2BD655 1.5px,transparent 1.5px) 0 0/12px 12px,linear-gradient(90deg,#00E5FF55 1.5px,transparent 1.5px) 0 0/12px 12px,#120E2B', fx: 'neon' },
+  { id: 'plasma', name: 'Plasma', r: 4, bg: 'linear-gradient(120deg,#FF2BD6,#5B3DF5,#00E5FF,#FF2BD6,#5B3DF5)', fx: 'flow' },
+  { id: 'galaxie', name: 'Galaxie', r: 4, bg: 'radial-gradient(circle at 70% 30%,#7B3FE4 0,transparent 45%),radial-gradient(circle at 25% 75%,#1E6FD9 0,transparent 40%),#0B0820', fx: 'twinkle' },
+  { id: 'feuer', name: 'Feuer', r: 4, bg: 'linear-gradient(0deg,#FF3D00,#FF9100 25%,#FFD54F 45%,#FF9100 65%,#FF3D00 85%,#7A1200)', fx: 'flame' },
+  { id: 'holo', name: 'Holo-Folie', r: 5, bg: 'conic-gradient(from 30deg,#FF6B6B,#FFD93D,#6BFF95,#4DD8FF,#B06BFF,#FF6B6B)', fx: 'holo shine' },
+  { id: 'diamant', name: 'Diamant', r: 5, bg: 'conic-gradient(from 45deg at 50% 50%,#E8FBFF,#7FD8FF,#FFFFFF,#B9F2FF,#5CC8FF,#E8FBFF)', fx: 'shine' },
+  { id: 'drache', name: 'Drachengold', r: 5, bg: 'radial-gradient(circle at 50% 115%,#FF3D00,transparent 55%),linear-gradient(135deg,#7A4E00,#FFD54A 40%,#FFF3B0 50%,#E0A800 65%,#5A3600)', fx: 'dragon shine' }
+];
+const SKIN = Object.fromEntries(SKINS.map(s => [s.id, s]));
+const CASE_SKINS = SKINS.filter(s => s.r > 0).length;
+const CASE_COST = 300;
+(function injectSkinCSS() {
+  const st = document.createElement('style');
+  st.textContent = SKINS.map(s => `.sk-${s.id}{--skin:${s.bg}}`).join('\n');
+  document.head.appendChild(st);
+})();
+const skinOf = a => SKIN[a && a.skin] || SKIN.basis;
+function avaHTML(a, size, extra = '') {
+  const sk = skinOf(a), av = AVA[a && a.avatar] || AVATARS[0];
+  const fx = sk.fx ? sk.fx.split(' ').map(f => 'fx-' + f).join(' ') : '';
+  return `<span class="ava sk-${sk.id} ${fx} ${extra}" style="--s:${size}px" title="${esc(av.name)} · ${esc(sk.name)}"><svg viewBox="0 0 100 100" aria-hidden="true">${av.svg}</svg></span>`;
+}
+
+/* ================= Profile, Chips, Kisten ================= */
+const pkey = n => String(n || '').trim().toLowerCase();
+function defaultAvatar(name) { let h = 0; const s = pkey(name); for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0; return AVATARS[h % AVATARS.length].id; }
+function ensureProfile(name) {
+  const k = pkey(name);
+  if (!S.profiles[k]) S.profiles[k] = { name: String(name).trim(), avatar: defaultAvatar(name), skin: 'basis', owned: ['basis'], chips: 0, cases: 0, pity: 0, opened: 0 };
+  return S.profiles[k];
+}
+function avaByName(name) { const pr = S.profiles && S.profiles[pkey(name)]; return pr ? { avatar: pr.avatar, skin: pr.skin } : { avatar: defaultAvatar(name), skin: 'basis' }; }
+const avaOf = p => p.ava || avaByName(p.name);
+function statsFor(name) {
+  const k = pkey(name); let wins = 0, games = 0;
+  S.history.forEach(h => { if (h.players.some(p => pkey(p.name) === k)) games++; if (h.winners.some(w => pkey(w) === k)) wins++; });
+  return { wins, games };
+}
+function rewardsFor(g) {
+  if (g.demo || !g.finished || g.rounds.length < 3) return null;
+  const t = totals(g), r = { chips: {}, cases: {} };
+  g.players.forEach(p => { const k = pkey(p.name); r.chips[k] = (r.chips[k] || 0) + t[p.id]; });
+  g.players.filter(p => g.winners.includes(p.id)).forEach(p => { r.cases[pkey(p.name)] = 1; });
+  return r;
+}
+function applyRewards(g, r, sign) {
+  if (!r) return;
+  const nameOf = k => (g.players.find(p => pkey(p.name) === k) || { name: k }).name;
+  Object.entries(r.chips).forEach(([k, v]) => { const pr = ensureProfile(nameOf(k)); pr.chips = Math.max(0, pr.chips + sign * v); });
+  // Gratis-Kiste: pro Spiel und Spieler nur einmal, wird beim Korrigieren nicht zurückgenommen
+  if (sign > 0) Object.entries(r.cases).forEach(([k, v]) => { g.caseGiven = g.caseGiven || {}; if (g.caseGiven[k]) return; g.caseGiven[k] = true; ensureProfile(nameOf(k)).cases += v; });
+}
+function syncRewards(g) {
+  const next = rewardsFor(g);
+  if (JSON.stringify(next) === JSON.stringify(g.rewards || null)) return;
+  applyRewards(g, g.rewards, -1); applyRewards(g, next, 1); g.rewards = next;
+}
+function rollRarity() { let x = Math.random() * 100; for (const k of [1, 2, 3, 4, 5]) { if (x < RAR[k].w) return k; x -= RAR[k].w; } return 1; }
+function pickSkin(r) { const pool = SKINS.filter(s => s.r === r); return pool[Math.floor(Math.random() * pool.length)]; }
+function rollSkin(pr) {
+  const forced = pr.pity >= 9;
+  const r = forced ? (Math.random() < 7 / 9 ? 4 : 5) : rollRarity();
+  const sk = pickSkin(r);
+  pr.pity = r >= 4 ? 0 : pr.pity + 1; pr.opened++;
+  const dupe = pr.owned.includes(sk.id);
+  if (dupe) pr.chips += RAR[r].refund; else pr.owned.push(sk.id);
+  return { sk, dupe, forced };
+}
+function openCase(key) {
+  const pr = S.profiles[key];
+  if (!pr) return;
+  if (pr.cases > 0) pr.cases--;
+  else if (pr.chips >= CASE_COST) pr.chips -= CASE_COST;
+  else { toast(`Noch ${CASE_COST - pr.chips} Chips bis zur nächsten Kiste`); return; }
+  const res = rollSkin(pr);
+  persist();
+  showCase(key, res);
+}
+const REEL_N = 46, REEL_WIN = 38, REEL_STEP = 78;
+function showCase(key, res) {
+  closeSheet();
+  const pr = S.profiles[key], el = $('#case');
+  const tiles = Array.from({ length: REEL_N }, (_, i) => i === REEL_WIN ? res.sk : pickSkin(rollRarity()));
+  el.innerHTML = `<div class="case-card" id="case-card" role="dialog" aria-modal="true" aria-labelledby="case-title">
+    <div class="case-top"><span class="win-kicker" id="case-title">Kiste für ${esc(pr.name)}</span>${res.forced ? '<span class="pill pill-gold">Glücksgarantie</span>' : ''}</div>
+    <div class="reel"><div class="reel-track" id="reel-track">${tiles.map(s => `<div class="rt" style="--rc:${RAR[s.r].c}">${avaHTML({ avatar: pr.avatar, skin: s.id }, 62)}<i></i></div>`).join('')}</div><div class="reel-marker" aria-hidden="true"></div></div>
+    <div class="case-result" id="case-result" hidden></div>
+  </div>`;
+  el.hidden = false;
+  sfx.shuffle();
+  spinReel(() => revealCase(key, res));
+}
+function spinReel(done) {
+  const track = $('#reel-track'), W = track.parentElement.clientWidth;
+  const jitter = (Math.random() - 0.5) * 36;
+  const target = W / 2 + jitter - (REEL_WIN * REEL_STEP + 35);
+  const dur = reduced() ? 700 : 5200, t0 = performance.now();
+  const ease = t => 1 - Math.pow(1 - t, 4);
+  let last = -1;
+  (function f(now) {
+    const p = Math.min(1, (now - t0) / dur), x = target * ease(p);
+    track.style.transform = `translateX(${x.toFixed(1)}px)`;
+    const idx = Math.floor((W / 2 - x) / REEL_STEP);
+    if (idx !== last) { last = idx; if (p < 1) sfx.tick(); }
+    if (p < 1) requestAnimationFrame(f); else setTimeout(done, 150);
+  })(t0);
+}
+function revealCase(key, res) {
+  const pr = S.profiles[key], r = RAR[res.sk.r], card = $('#case-card');
+  if (!card) return;
+  card.classList.add('rev'); card.style.setProperty('--rc', r.c);
+  const won = card.querySelectorAll('.rt')[REEL_WIN]; if (won) won.classList.add('won');
+  sfx.reveal(res.sk.r);
+  if (res.sk.r >= 4) confetti([r.c, '#FFC530', '#FFFFFF', '#FF2BD6', '#00E5FF']);
+  const box = $('#case-result');
+  box.innerHTML = caseResultHTML(key, res);
+  box.hidden = false;
+}
+function caseResultHTML(key, res) {
+  const pr = S.profiles[key], r = RAR[res.sk.r];
+  const equipped = pr.skin === res.sk.id;
+  const again = pr.cases > 0 || pr.chips >= CASE_COST;
+  return `<div class="cr-ava">${avaHTML({ avatar: pr.avatar, skin: res.sk.id }, 120)}</div>
+    <span class="rar-pill" style="--rc:${r.c}">${r.n}</span>
+    <h3 class="cr-name">${esc(res.sk.name)}</h3>
+    <p class="cr-note">${res.dupe ? `Den hast du schon. Dafür gibt's <b>+${r.refund} Chips</b> zurück.` : 'Neu in deiner Sammlung!'}</p>
+    <div class="win-actions">
+      ${equipped ? '<span class="pill">Angelegt</span>' : `<button class="btn btn-primary" data-act="case-equip" data-key="${esc(key)}" data-skin="${res.sk.id}">Anlegen</button>`}
+      ${again ? `<button class="btn" data-act="open-case" data-key="${esc(key)}">${pr.cases > 0 ? 'Gratis-Kiste öffnen' : `Noch eine · ${CASE_COST} Chips`}</button>` : ''}
+      <button class="btn btn-ghost" data-act="case-close">Fertig</button>
+    </div>
+    <p class="cr-chips">${ICON.chip} ${pr.chips} Chips${pr.cases ? ` · ${pr.cases} Gratis-Kiste${pr.cases > 1 ? 'n' : ''}` : ''}</p>`;
+}
+function hideCase() { const el = $('#case'); el.hidden = true; el.innerHTML = ''; }
+function caseButtons(g) {
+  if (!g.rewards) return '';
+  return g.players.filter(p => g.winners.includes(p.id)).map(p => {
+    const pr = S.profiles[pkey(p.name)];
+    if (!pr || !(pr.cases > 0 || pr.chips >= CASE_COST)) return '';
+    return `<button class="btn btn-primary case-btn" data-act="open-case" data-key="${esc(pkey(p.name))}">${ICON.chest} ${pr.cases > 0 ? 'Gratis-Kiste' : 'Kiste'} für ${esc(p.name)} öffnen</button>`;
+  }).join('');
+}
+
+function setupAva(i) {
+  const n = (S.setup.names[i] || '').trim(), av = (S.setup.avas || [])[i], pr = n && S.profiles[pkey(n)];
+  return { avatar: av || (pr && pr.avatar) || defaultAvatar(n || ('#' + i)), skin: (pr && pr.skin) || 'basis' };
+}
 
 /* ================= Rendering ================= */
 function renderTop() {
@@ -600,8 +1064,11 @@ function renderTop() {
 function render() {
   renderTop();
   const v = $('#view');
-  if (S.view === 'setup') v.innerHTML = setupHTML();
+  if (S.view === 'home') v.innerHTML = homeHTML();
+  else if (S.view === 'setup') v.innerHTML = setupHTML();
   else if (S.view === 'board') v.innerHTML = boardHTML();
+  else if (S.view === 'players') v.innerHTML = playersHTML();
+  else if (S.view === 'profile') v.innerHTML = profileHTML();
   else v.innerHTML = gameHTML();
   if (S.view === 'game') {
     if (S.tab === 'enter') updateSaveState();
@@ -619,6 +1086,99 @@ function bumpTotals() {
   lastTotals = t;
 }
 
+function homeHTML() {
+  const g = S.game && !S.game.demo ? S.game : null;
+  let cont = '';
+  if (g) {
+    const t = totals(g), sorted = [...g.players].sort((a, b) => t[b.id] - t[a.id]);
+    const head = g.finished
+      ? `Letztes Spiel · ${esc(nameList(g.players.filter(p => g.winners.includes(p.id)).map(p => p.name)))} hat gewonnen`
+      : `Laufendes Spiel · Runde ${g.rounds.length + 1}`;
+    cont = `<section class="panel resume">
+      <span class="lbl">${head}</span>
+      <ol class="rs-list">${sorted.map(p => `<li style="--pc:${p.color}">${avaHTML(avaOf(p), 28)}<span>${esc(p.name)}</span><b>${t[p.id]}</b></li>`).join('')}</ol>
+      <div class="row-btns start">${g.finished
+        ? '<button class="btn btn-primary" data-act="rematch">Revanche</button><button class="btn" data-act="resume">Ansehen</button>'
+        : '<button class="btn btn-primary" data-act="resume">Weiterspielen</button><button class="btn btn-danger" data-act="discard">Verwerfen</button>'}</div>
+    </section>`;
+  }
+  return `<div class="home">
+    <section class="hero">
+      <div class="hero-cards" aria-hidden="true"><span></span><span></span><span>7</span></div>
+      <h1 class="display">Flip 7<br>Punkteblock</h1>
+      <p>Punkte eintragen, der Rest rechnet sich von selbst.</p>
+    </section>
+    ${cont}
+    <div class="home-actions">
+      <button class="btn ${g && !g.finished ? '' : 'btn-primary'} btn-big" data-act="go-setup">Neues Spiel</button>
+      <button class="btn" data-act="go-players">${ICON.chest} Spieler &amp; Kisten${Object.values(S.profiles).some(pr => pr.cases > 0 || pr.chips >= CASE_COST) ? '<span class="dot" aria-label="Kiste bereit"></span>' : ''}</button>
+      <button class="btn" data-act="demo-start">Beispiel ansehen</button>
+      <button class="btn" data-act="go-board">Bestenliste</button>
+    </div>
+  </div>`;
+}
+
+function playersHTML() {
+  const list = Object.entries(S.profiles).map(([k, pr]) => ({ k, pr, ...statsFor(pr.name) }))
+    .sort((a, b) => b.wins - a.wins || a.pr.name.localeCompare(b.pr.name, 'de'));
+  return `<div class="stack">
+    <div class="board-head"><h1 class="display">Spieler &amp; Kisten</h1><button class="btn" data-act="go-home">Zum Start</button></div>
+    <p class="lede">Am Spielende bekommt jeder so viele Chips, wie er Punkte hat. Eine Kiste kostet ${CASE_COST} Chips, der Sieger bekommt eine gratis. Gezählt wird ab 3 Runden.</p>
+    ${list.length ? `<div class="plist">${list.map(({ k, pr, wins }) => {
+      const ready = pr.cases > 0 || pr.chips >= CASE_COST, own = pr.owned.filter(id => id !== 'basis').length;
+      return `<button class="panel pcard" data-act="open-profile" data-key="${esc(k)}">${avaHTML(pr, 64)}<span class="pc-body"><b>${esc(pr.name)}</b><span class="pc-meta">${ICON.chip} ${pr.chips} · ${own}/${CASE_SKINS} Skins · ${wins} ${wins === 1 ? 'Sieg' : 'Siege'}</span>${ready ? `<span class="pill pill-gold">${pr.cases > 0 ? 'Gratis-Kiste bereit' : 'Kiste bereit'}</span>` : ''}</span></button>`;
+    }).join('')}</div>`
+    : '<section class="panel"><p class="empty">Noch keine Spieler. Sobald ihr ein Spiel startet, bekommt jeder Name sein eigenes Profil mit Avatar.</p></section>'}
+  </div>`;
+}
+
+function profileHTML() {
+  const k = S.profileKey, pr = S.profiles[k];
+  if (!pr) return playersHTML();
+  const st = statsFor(pr.name), ready = pr.cases > 0 || pr.chips >= CASE_COST;
+  const own = new Set(pr.owned), ownCount = pr.owned.filter(id => id !== 'basis').length;
+  const toGo = Math.max(0, 9 - pr.pity);
+  return `<div class="stack">
+    <div class="board-head"><button class="btn" data-act="go-players">Alle Spieler</button></div>
+    <section class="panel prof-hero">
+      ${avaHTML(pr, 116)}
+      <div class="ph-body">
+        <h1 class="display">${esc(pr.name)}</h1>
+        <p class="ph-stats">${st.wins} ${st.wins === 1 ? 'Sieg' : 'Siege'} · ${st.games} ${st.games === 1 ? 'Spiel' : 'Spiele'} · ${ownCount}/${CASE_SKINS} Skins</p>
+        <div class="ph-chips">${ICON.chip}<b>${pr.chips}</b><span>Chips</span>${pr.cases ? `<span class="pill pill-gold">${pr.cases} Gratis-Kiste${pr.cases > 1 ? 'n' : ''}</span>` : ''}</div>
+      </div>
+      <button class="btn btn-primary btn-big" data-act="open-case" data-key="${esc(k)}" ${ready ? '' : 'disabled'}>${ICON.chest} ${pr.cases > 0 ? 'Gratis-Kiste öffnen' : `Kiste öffnen · ${CASE_COST} Chips`}</button>
+      ${ready ? '' : `<p class="hint">Noch ${CASE_COST - pr.chips} Chips bis zur nächsten Kiste.</p>`}
+      <p class="hint">Glücksgarantie: ${toGo === 0 ? 'Die nächste Kiste ist mindestens Episch!' : `spätestens die ${toGo + 1}. Kiste ab jetzt ist mindestens Episch.`}</p>
+    </section>
+    <h2 class="display sec-title">Skins</h2>
+    <div class="skins">${SKINS.map(sk => {
+      const has = own.has(sk.id), on = pr.skin === sk.id;
+      return has
+        ? `<button class="sk-tile ${on ? 'on' : ''}" data-act="equip" data-key="${esc(k)}" data-skin="${sk.id}" style="--rc:${RAR[sk.r].c}" aria-pressed="${on}">${avaHTML({ avatar: pr.avatar, skin: sk.id }, 58)}<span class="sk-name">${esc(sk.name)}</span><span class="sk-rar">${on ? 'Angelegt' : RAR[sk.r].n}</span></button>`
+        : `<button class="sk-tile locked" data-act="locked" style="--rc:${RAR[sk.r].c}"><span class="sk-lock">?</span><span class="sk-name">???</span><span class="sk-rar">${RAR[sk.r].n}</span></button>`;
+    }).join('')}</div>
+    <h2 class="display sec-title">Avatar</h2>
+    <div class="ava-grid">${AVATARS.map(a => `<button class="ava-pick ${pr.avatar === a.id ? 'on' : ''}" data-act="set-ava" data-key="${esc(k)}" data-a="${a.id}" aria-pressed="${pr.avatar === a.id}">${avaHTML({ avatar: a.id, skin: pr.skin }, 60)}<span>${a.name}</span></button>`).join('')}</div>
+    <h2 class="display sec-title">Chancen pro Kiste</h2>
+    <section class="panel pad odds">${[5, 4, 3, 2, 1].map(r => `<div style="--rc:${RAR[r].c}"><i></i><span>${RAR[r].n}</span><b>${RAR[r].w} %</b><em>Doppelt gezogen: +${RAR[r].refund} Chips zurück</em></div>`).join('')}</section>
+    <div><button class="btn btn-danger" data-act="del-profile" data-key="${esc(k)}">Profil löschen</button></div>
+  </div>`;
+}
+
+function avaPickSheet() {
+  const i = sheet.i, cur = setupAva(i), nm = (S.setup.names[i] || '').trim();
+  return `<h2 id="sheet-title" class="display sh-title">Avatar${nm ? ' für ' + esc(nm) : ''}</h2>
+  <div class="ava-grid">${AVATARS.map(a => `<button class="ava-pick ${cur.avatar === a.id ? 'on' : ''}" data-act="pick-ava-set" data-a="${a.id}" aria-pressed="${cur.avatar === a.id}">${avaHTML({ avatar: a.id, skin: cur.skin }, 60)}<span>${a.name}</span></button>`).join('')}</div>
+  <div class="sh-actions"><button class="btn" data-act="close-sheet">Schließen</button></div>`;
+}
+
+function endButtons(g) {
+  return g.demo
+    ? '<button class="btn btn-primary" data-act="demo-restart">Beispiel nochmal</button><button class="btn" data-act="demo-exit">Zum Startbildschirm</button>'
+    : '<button class="btn btn-primary" data-act="rematch">Revanche</button><button class="btn" data-act="go-setup">Neue Spieler</button>';
+}
+
 function gameHTML() {
   const g = S.game;
   const tabs = [['enter','Eintragen'],['table','Tabelle'],['stats','Statistik'],['chart','Verlauf']];
@@ -628,7 +1188,7 @@ function gameHTML() {
   else if (S.tab === 'chart') panel = chartHTML(g);
   else panel = enterHTML(g);
   return `<div class="stack">
-    ${g.demo ? `<div class="demo"><p><b>Beispielspiel</b>So sieht ein laufendes Spiel aus. Probier ruhig alles aus.</p><button class="btn" data-act="go-setup">Eigenes Spiel starten</button></div>` : ''}
+    ${g.demo ? `<div class="demo"><p><b>Beispielspiel</b>Probier hier alles aus. Nichts davon wird gespeichert oder gezählt.</p><div class="row-btns"><button class="btn" data-act="demo-restart">Neu starten</button><button class="btn" data-act="demo-exit">Beenden</button></div></div>` : ''}
     ${standingsHTML(g)}
     <div class="tabs" role="tablist" aria-label="Ansicht">${tabs.map(([k, l]) => `<button class="tab" role="tab" data-act="tab" data-tab="${k}" aria-selected="${S.tab === k}">${l}</button>`).join('')}</div>
     ${panel}
@@ -649,7 +1209,7 @@ function standingsHTML(g) {
     const pct = Math.min(100, Math.round(tot / g.target * 100));
     const isDealer = g.players.indexOf(p) === di;
     return `<div class="ptile ${lead ? 'lead' : ''}" data-pid="${p.id}" style="--pc:${p.color}">
-      <div class="pt-top"><span class="rank">${rank}</span><span class="pname">${esc(p.name)}</span>${lead ? ICON.crown : ''}${isDealer ? dealTag : ''}</div>
+      ${isDealer ? dealTag : ''}<div class="pt-top"><span class="pt-ava">${avaHTML(avaOf(p), 42)}<span class="rank">${rank}</span>${lead ? ICON.crown : ''}</span><span class="pname">${esc(p.name)}</span></div>
       <div class="ptotal">${tot}</div>
       <div class="bar" aria-hidden="true"><span style="width:${pct}%"></span></div>
       <div class="prest">${won ? '<b>Gewonnen!</b>' : rest === 0 ? '<b>Ziel erreicht</b>' : `noch <b>${rest}</b> bis ${g.target}`}</div>
@@ -670,7 +1230,7 @@ function enterHTML(g) {
   const rows = g.players.map((p, i) => {
     const d = getDraft(p.id);
     return `<div class="erow ${d.b ? 'is-bust' : ''} ${d.f && !d.b ? 'is-f7' : ''}" data-pid="${p.id}" style="--pc:${p.color}">
-      <div class="ename"><span class="swatch"></span><span class="nm">${esc(p.name)}</span>${i === di ? dealTag : ''}</div>
+      <div class="ename">${avaHTML(avaOf(p), 34)}<span class="nm">${esc(p.name)}</span>${i === di ? dealTag : ''}</div>
       <div class="ectrl">
         ${d.b ? '<div class="bust-stamp" aria-label="Bust, 0 Punkte">Bust</div>'
               : `<input class="score-in" id="in-${p.id}" data-pid="${p.id}" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" autocomplete="off" enterkeyhint="next" placeholder="–" value="${esc(d.v)}" aria-label="Punkte für ${esc(p.name)}">`}
@@ -696,11 +1256,8 @@ function finishedHTML(g) {
     ${ICON.trophy}
     <h2 class="display">${esc(nameList(ws.map(p => p.name)))} ${shared ? 'teilen sich den Sieg' : 'gewinnt'}!</h2>
     <p>${shared ? 'Alle mit' : 'Mit'} ${t[ws[0].id]} Punkten nach ${g.rounds.length} Runden.</p>
-    <div class="row-btns">
-      <button class="btn btn-primary" data-act="rematch">Revanche</button>
-      <button class="btn" data-act="go-setup">Neue Spieler</button>
-      <button class="btn" data-act="replay">Siegerehrung nochmal</button>
-    </div>
+    <div class="row-btns">${endButtons(g)}<button class="btn" data-act="replay">Siegerehrung nochmal</button></div>
+    ${g.rewards ? `<div class="win-cases" style="width:min(420px,100%)">${caseButtons(g)}</div>` : ''}
   </section>`;
 }
 
@@ -708,7 +1265,7 @@ function tableHTML(g) {
   if (!g.rounds.length) return '<section class="panel"><p class="empty">Noch keine Runde gespielt. Sobald du die erste Runde speicherst, steht sie hier.</p></section>';
   const t = totals(g), run = {};
   g.players.forEach(p => run[p.id] = 0);
-  const head = `<tr><th class="rc" scope="col">Rd.</th>${g.players.map(p => `<th scope="col" style="--pc:${p.color}"><span class="th-name"><span class="swatch"></span><span>${esc(p.name)}</span></span></th>`).join('')}</tr>`;
+  const head = `<tr><th class="rc" scope="col">Rd.</th>${g.players.map(p => `<th scope="col" style="--pc:${p.color}"><span class="th-name">${avaHTML(avaOf(p), 24)}<span>${esc(p.name)}</span></span></th>`).join('')}</tr>`;
   const body = g.rounds.map((r, ri) => {
     const vals = g.players.map(p => (r.sc[p.id] && r.sc[p.id].p) || 0);
     const best = Math.max(...vals);
@@ -852,7 +1409,7 @@ function setupHTML() {
       <h1 class="display">Wer spielt mit?</h1>
       <p class="sub">Namen in Sitzreihenfolge eintragen. Das Kartensymbol zeigt, wer in der ersten Runde gibt.</p>
       <ol class="names">${su.names.map((n, i) => `<li class="nrow" style="--pc:${COLORS[i % COLORS.length]}">
-        <span class="swatch" aria-hidden="true"></span>
+        <button class="ava-btn" id="ava-${i}" data-act="pick-ava" data-i="${i}" aria-label="Avatar wählen" title="Avatar wählen">${avaHTML(setupAva(i), 44)}</button>
         <input class="name-in" id="name-${i}" data-i="${i}" value="${esc(n)}" placeholder="Spieler ${i + 1}" maxlength="16" autocomplete="off" enterkeyhint="next" aria-label="Name Spieler ${i + 1}">
         <div class="nbtns">
           <button class="ib deal-btn ${su.dealer === i ? 'on' : ''}" data-act="first-dealer" data-i="${i}" aria-pressed="${su.dealer === i}" aria-label="Gibt in Runde 1" title="Gibt in Runde 1">${ICON.card}</button>
@@ -868,7 +1425,7 @@ function setupHTML() {
       <p class="err" id="setup-err"></p>
       <button class="btn btn-primary btn-big" data-act="start-game">Los geht's</button>
     </section>
-    <div class="link-row"><button class="btn btn-ghost" data-act="go-board">Bestenliste ansehen</button></div>
+    <div class="link-row"><button class="btn btn-ghost" data-act="go-home">Zurück zum Start</button><button class="btn btn-ghost" data-act="go-board">Bestenliste ansehen</button></div>
   </div>`;
 }
 
@@ -880,12 +1437,12 @@ function boardHTML() {
   });
   const list = Object.values(agg).sort((a, b) => b.wins - a.wins || (b.wins / b.games) - (a.wins / a.games) || a.name.localeCompare(b.name, 'de'));
   const maxW = Math.max(1, ...list.map(x => x.wins));
-  const back = S.game ? 'Zurück zum Spiel' : 'Neues Spiel';
+  const back = S.game ? (S.game.demo ? 'Zurück zum Beispiel' : 'Zurück zum Spiel') : 'Zum Startbildschirm';
   const fmt = ts => new Date(ts).toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
   return `<div class="stack">
-    <div class="board-head"><h1 class="display">Bestenliste</h1><button class="btn" data-act="${S.game ? 'go-game' : 'go-setup'}">${back}</button></div>
+    <div class="board-head"><h1 class="display">Bestenliste</h1><button class="btn" data-act="${S.game ? 'go-game' : 'go-home'}">${back}</button></div>
     ${H.length ? `<section class="panel pad"><ol class="lb">${list.map((x, i) => `<li>
-        <span class="lb-rank">${i + 1}</span><span class="lb-name">${esc(x.name)}</span>
+        <span class="lb-rank">${i + 1}</span><span class="lb-name">${avaHTML(avaByName(x.name), 30)}<span>${esc(x.name)}</span></span>
         <span class="lb-num"><b>${x.wins}</b> ${x.wins === 1 ? 'Sieg' : 'Siege'} · ${x.games} ${x.games === 1 ? 'Spiel' : 'Spiele'}</span>
         <span class="lb-bar" aria-hidden="true"><span style="width:${x.wins / maxW * 100}%"></span></span></li>`).join('')}</ol></section>
       <h2 class="display h2">Letzte Spiele</h2>
@@ -968,19 +1525,28 @@ function renderSheet() {
   else if (sheet.type === 'edit') inner = editSheet();
   else if (sheet.type === 'confirm') inner = confirmSheet();
   else if (sheet.type === 'info') inner = infoSheet();
+  else if (sheet.type === 'avapick') inner = avaPickSheet();
   root.hidden = false;
   root.innerHTML = `<div class="scrim" data-act="close-sheet"></div><div class="sheet ${sheet._new ? 'in' : ''}" role="dialog" aria-modal="true" aria-labelledby="sheet-title">${inner}</div>`;
   sheet._new = false;
 }
 function menuSheet() {
-  const g = S.game;
+  const g = S.game, inGame = S.view === 'game' && g;
+  const items = [];
+  if (inGame && g.demo) {
+    items.push(['demo-restart', 'Beispiel neu starten', 'Frisches Beispielspiel mit den Beispielnamen.']);
+    items.push(['demo-exit', 'Beispiel beenden', 'Zurück zum Startbildschirm. Dein echtes Spiel bleibt, wie es war.']);
+  } else {
+    if (S.view !== 'home') items.push(['go-home', 'Startbildschirm', 'Weiterspielen, neues Spiel oder Beispiel ansehen.']);
+    if (g && !g.demo) items.push(['rematch', 'Revanche', 'Gleiche Spieler, neues Spiel. Der Nächste in der Runde gibt zuerst.']);
+    items.push(['go-setup', 'Neues Spiel', 'Spieler und Zielpunkte neu festlegen.']);
+    if (g && !g.demo && !g.finished) items.push(['discard', 'Spiel verwerfen', 'Das laufende Spiel löschen. Es zählt nicht für die Bestenliste.', 'danger']);
+  }
+  items.push(['go-players', 'Spieler & Kisten', 'Avatare, Chips, Skins und Kisten öffnen.']);
+  items.push(['go-board', 'Bestenliste', 'Wer hat wie oft gewonnen, plus alle fertigen Spiele.']);
+  if (!isStandalone()) items.push(['install', 'Als App installieren', 'Eigenes Icon auf dem Home-Bildschirm, läuft auch ohne Internet.']);
   return `<h2 id="sheet-title" class="display sh-title">Menü</h2>
-  <div class="menu-list">
-    ${g ? `<button class="mitem" data-act="rematch"><b>Revanche</b><span>Gleiche Spieler, neues Spiel. Der Nächste in der Runde gibt zuerst.</span></button>` : ''}
-    <button class="mitem" data-act="go-setup"><b>Neues Spiel</b><span>Spieler und Zielpunkte neu festlegen.</span></button>
-    <button class="mitem" data-act="go-board"><b>Bestenliste</b><span>Wer hat wie oft gewonnen, plus alle fertigen Spiele.</span></button>
-    ${isStandalone() ? '' : `<button class="mitem" data-act="install"><b>Als App installieren</b><span>Eigenes Icon auf dem Home-Bildschirm, läuft auch ohne Internet.</span></button>`}
-  </div>
+  <div class="menu-list">${items.map(([act, t, d, cls]) => `<button class="mitem ${cls || ''}" data-act="${act}"><b>${t}</b><span>${d}</span></button>`).join('')}</div>
   <div class="sh-actions"><button class="btn" data-act="close-sheet">Schließen</button></div>`;
 }
 function confirmSheet() {
@@ -1058,35 +1624,41 @@ function editSheet() {
 }
 
 /* ================= Sieg ================= */
-function celebrate() { sfx.win(); confetti(); showWin(); }
+function celebrate() {
+  sfx.win(); confetti(); showWin();
+  const g = S.game;
+  if (g && g.players.some(p => g.winners.includes(p.id) && skinOf(avaOf(p)).r === 5)) setTimeout(() => sfx.flip7(), 4000);
+}
 function showWin() {
   const g = S.game, t = totals(g);
   const ws = g.players.filter(p => g.winners.includes(p.id));
   if (!ws.length) return;
-  const shared = ws.length > 1;
+  const shared = ws.length > 1, rw = g.rewards;
   const sorted = [...g.players].sort((a, b) => t[b.id] - t[a.id]);
   const w = $('#win');
   w.innerHTML = `<div class="win-rays" aria-hidden="true"></div>
   <div class="win-card" role="dialog" aria-modal="true" aria-labelledby="win-title">
     <div class="win-kicker">${shared ? 'Geteilter Sieg' : 'Spiel vorbei'} nach ${g.rounds.length} Runden</div>
+    <div class="win-avas">${ws.map(p => avaHTML(avaOf(p), shared ? 76 : 96)).join('')}</div>
     <div class="win-big">Sieg!</div>
     <h2 id="win-title" class="win-names">${ws.map(p => `<span style="--pc:${p.color}">${esc(p.name)}</span>`).join('<i>&amp;</i>')}</h2>
     <div class="win-score">${shared ? 'Punktgleich mit' : 'mit'} ${t[ws[0].id]} Punkten</div>
-    <ol class="win-list">${sorted.map(p => `<li style="--pc:${p.color}"><span class="swatch"></span><span class="pl">${sorted.findIndex(q => t[q.id] === t[p.id]) + 1}.</span><span>${esc(p.name)}</span><b>${t[p.id]}</b></li>`).join('')}</ol>
-    <div class="win-actions"><button class="btn btn-primary" data-act="rematch">Revanche</button><button class="btn" data-act="go-setup">Neue Spieler</button><button class="btn btn-ghost" data-act="win-close">Schließen</button></div>
+    <ol class="win-list">${sorted.map(p => `<li>${avaHTML(avaOf(p), 26)}<span class="pl">${sorted.findIndex(q => t[q.id] === t[p.id]) + 1}.</span><span>${esc(p.name)}</span><b>${t[p.id]}</b>${rw ? `<em class="chip-gain">+${t[p.id]} ${ICON.chip}</em>` : '<em></em>'}</li>`).join('')}</ol>
+    ${rw ? `<div class="win-cases">${caseButtons(g)}</div>` : `<p class="win-note">${g.demo ? 'Im Beispielspiel gibt es keine Chips.' : 'Chips und Kisten gibt es erst ab 3 gespielten Runden.'}</p>`}
+    <div class="win-actions">${endButtons(g)}<button class="btn btn-ghost" data-act="win-close">Schließen</button></div>
     <div class="win-made">Made by <b>Hatozoro</b></div>
   </div>`;
   w.hidden = false;
 }
 function hideWin() { const w = $('#win'); w.hidden = true; w.innerHTML = ''; }
 
-function confetti() {
+function confetti(custom) {
   if (reduced()) return;
   const cv = $('#confetti'), cx = cv.getContext('2d');
   if (!cx) return;
   const dpr = Math.min(2, window.devicePixelRatio || 1), W = innerWidth, H = innerHeight;
   cv.width = W * dpr; cv.height = H * dpr; cv.hidden = false; cx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  const cols = [...S.game.players.map(p => p.color), '#FFC530', '#FFFFFF', '#5B3DF5'];
+  const cols = custom || [...(S.game ? S.game.players.map(p => p.color) : COLORS.slice(0, 6)), '#FFC530', '#FFFFFF', '#5B3DF5'];
   const P = [];
   for (let i = 0; i < 240; i++) {
     const left = i % 2 === 0;
@@ -1133,10 +1705,18 @@ function startGame() {
   const dup = keys.find((k, i) => keys.indexOf(k) !== i);
   if (dup) { err.textContent = `„${rows[keys.indexOf(dup)].n}“ steht doppelt drin. Gib den beiden unterschiedliche Namen.`; return; }
   const startDealer = Math.max(0, rows.findIndex(r => r.i === su.dealer));
-  S.game = newGame(rows.map(r => r.n), su.target, startDealer);
-  S.draft = {}; S.view = 'game'; S.tab = 'enter'; lastTotals = null;
-  render(); window.scrollTo(0, 0); sfx.shuffle();
-  toast(`${rows[startDealer].n} gibt zuerst. Viel Glück!`);
+  const go = () => {
+    leaveDemo();
+    S.game = newGame(rows.map(r => r.n), su.target, startDealer);
+    rows.forEach(r => { const pr = ensureProfile(r.n); const av = (su.avas || [])[r.i]; if (av) pr.avatar = av; });
+    S.draft = {}; S.view = 'game'; S.tab = 'enter'; lastTotals = null;
+    render(); window.scrollTo(0, 0); sfx.shuffle();
+    toast(`${rows[startDealer].n} gibt zuerst. Viel Glück!`);
+  };
+  const cur = S.mode === 'demo' ? (S.stash && S.stash.game) : S.game;
+  if (cur && !cur.demo && !cur.finished && cur.rounds.length) {
+    ask('Laufendes Spiel ersetzen?', `Das Spiel mit ${nameList(cur.players.map(p => p.name))} (Runde ${cur.rounds.length + 1}) wird verworfen und nicht gezählt.`, 'Neues Spiel starten', go);
+  } else go();
 }
 
 document.addEventListener('click', e => {
@@ -1159,15 +1739,43 @@ document.addEventListener('click', e => {
       break;
     case 'cell': openEdit(+el.dataset.r, pid); break;
     case 'replay': celebrate(); break;
-    case 'go-setup': closeSheet(); hideWin(); S.setup = initSetup(); S.view = 'setup'; render(); window.scrollTo(0, 0); break;
+    case 'go-setup': closeSheet(); hideWin(); leaveDemo(); S.setup = initSetup(); S.view = 'setup'; render(); window.scrollTo(0, 0); break;
+    case 'go-home': closeSheet(); hideWin(); leaveDemo(); S.view = 'home'; render(); window.scrollTo(0, 0); break;
+    case 'resume': if (S.game) { S.view = 'game'; render(); window.scrollTo(0, 0); sfx.click(); } break;
+    case 'demo-start': closeSheet(); enterDemo(); render(); window.scrollTo(0, 0); sfx.shuffle(); break;
+    case 'demo-restart': closeSheet(); hideWin(); enterDemo(); render(); window.scrollTo(0, 0); sfx.shuffle(); toast('Beispiel neu gestartet'); break;
+    case 'demo-exit': closeSheet(); hideWin(); leaveDemo(); S.view = 'home'; render(); window.scrollTo(0, 0); break;
+    case 'discard':
+      closeSheet();
+      ask('Spiel verwerfen?', 'Alle Runden dieses Spiels werden gelöscht. Es zählt nicht für die Bestenliste.', 'Verwerfen', () => {
+        S.game = null; S.draft = {}; S.view = 'home'; lastTotals = null; render(); window.scrollTo(0, 0); sfx.undo(); toast('Spiel verworfen');
+      });
+      break;
     case 'go-board': closeSheet(); hideWin(); S.view = 'board'; render(); window.scrollTo(0, 0); break;
-    case 'go-game': closeSheet(); if (S.game) { S.view = 'game'; render(); } break;
+    case 'go-game': closeSheet(); S.view = S.game ? 'game' : 'home'; render(); break;
     case 'rematch':
       closeSheet(); hideWin();
+      if (g && g.demo) { enterDemo(); render(); sfx.shuffle(); break; }
       if (g && g.rounds.length && !g.finished && !g.demo) ask('Revanche starten?', 'Das laufende Spiel wird abgebrochen und nicht in der Bestenliste gezählt.', 'Neues Spiel', doRematch);
       else doRematch();
       break;
     case 'win-close': hideWin(); break;
+    case 'go-players': closeSheet(); hideWin(); leaveDemo(); S.view = 'players'; render(); window.scrollTo(0, 0); break;
+    case 'open-profile': S.profileKey = el.dataset.key; S.view = 'profile'; sfx.click(); render(); window.scrollTo(0, 0); break;
+    case 'set-ava': { const pr = S.profiles[el.dataset.key]; if (pr) { pr.avatar = el.dataset.a; sfx.flick(); render(); } break; }
+    case 'equip': { const pr = S.profiles[el.dataset.key]; if (pr && pr.owned.includes(el.dataset.skin)) { pr.skin = el.dataset.skin; sfx.save(); render(); } break; }
+    case 'locked': sfx.click(); toast('Noch nicht gezogen. Öffne Kisten, um ihn zu finden.'); break;
+    case 'open-case': openCase(el.dataset.key); break;
+    case 'case-equip': { const pr = S.profiles[el.dataset.key]; if (pr) { pr.skin = el.dataset.skin; persist(); el.outerHTML = '<span class="pill">Angelegt</span>'; sfx.save(); } break; }
+    case 'case-close': hideCase(); render(); if (!$('#win').hidden) showWin(); break;
+    case 'pick-ava': openSheet({ type: 'avapick', i: +el.dataset.i }); sfx.click(); break;
+    case 'pick-ava-set': { const i = sheet.i; S.setup.avas = S.setup.avas || []; S.setup.avas[i] = el.dataset.a; closeSheet(); sfx.flick(); render(); break; }
+    case 'del-profile': {
+      const k = el.dataset.key, pr = S.profiles[k];
+      if (!pr) break;
+      ask('Profil löschen?', `${pr.name} verliert Avatar, Chips und alle Skins. Die Bestenliste bleibt.`, 'Löschen', () => { delete S.profiles[k]; S.view = 'players'; render(); toast('Profil gelöscht'); });
+      break;
+    }
     case 'install': installApp(); break;
     case 'clear-history':
       ask('Bestenliste löschen?', 'Alle gespeicherten Spiele und Siege werden entfernt. Das lässt sich nicht rückgängig machen.', 'Alles löschen', () => { S.history = []; render(); toast('Bestenliste gelöscht'); });
@@ -1177,7 +1785,7 @@ document.addEventListener('click', e => {
       if (S.setup.names.length >= MAX_PLAYERS) break;
       S.setup.names.push(''); render(); { const i = $('#name-' + (S.setup.names.length - 1)); if (i) i.focus(); } break;
     case 'rm-player': {
-      const i = +el.dataset.i; S.setup.names.splice(i, 1);
+      const i = +el.dataset.i; S.setup.names.splice(i, 1); (S.setup.avas || []).splice(i, 1);
       if (S.setup.dealer === i) S.setup.dealer = 0; else if (S.setup.dealer > i) S.setup.dealer--;
       render(); break;
     }
@@ -1185,6 +1793,7 @@ document.addEventListener('click', e => {
       const i = +el.dataset.i, j = i + (+el.dataset.d), n = S.setup.names;
       if (j < 0 || j >= n.length) break;
       [n[i], n[j]] = [n[j], n[i]];
+      const av = S.setup.avas || (S.setup.avas = []); [av[i], av[j]] = [av[j], av[i]];
       if (S.setup.dealer === i) S.setup.dealer = j; else if (S.setup.dealer === j) S.setup.dealer = i;
       render(); break;
     }
@@ -1244,13 +1853,14 @@ document.addEventListener('input', e => {
     const pv = $('#edit-prev'); if (pv) pv.textContent = v === '' ? '' : sheet.f ? `${v} + 15 = ${+v + 15} Punkte` : `${v} Punkte`;
   } else if (el.classList.contains('name-in')) {
     S.setup.names[+el.dataset.i] = el.value;
+    const ab = $('#ava-' + el.dataset.i); if (ab) ab.innerHTML = avaHTML(setupAva(+el.dataset.i), 44);
     const err = $('#setup-err'); if (err) err.textContent = '';
     persist();
   }
 });
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { if (sheet) closeSheet(); else if (!$('#win').hidden) hideWin(); return; }
+  if (e.key === 'Escape') { if (!$('#case').hidden) { hideCase(); render(); } else if (sheet) closeSheet(); else if (!$('#win').hidden) hideWin(); return; }
   if (e.key !== 'Enter') return;
   const el = e.target;
   if (el.classList.contains('score-in') && el.dataset.pid) {

@@ -2,7 +2,7 @@
 
 Punkteblock für das Kartenspiel Flip 7. Runden eintragen, Punkte werden automatisch addiert, wer zuerst das Ziel (Standard 200) erreicht, gewinnt. Erreichen mehrere das Ziel in derselben Runde, gewinnt der mit mehr Punkten. Bei Gleichstand wird geteilt.
 
-Funktionen: Karten-Rechner, Bust- und Flip-7-Knopf, Sounds (abschaltbar), Siegerehrung mit Konfetti, Tabelle mit Korrektur, Statistik, Verlaufsdiagramm, Bestenliste. Läuft nach dem ersten Öffnen auch offline und lässt sich als App auf dem Home-Bildschirm installieren.
+Funktionen: Startbildschirm mit Weiterspielen, 16 gezeichnete Avatare, Chips und Kisten mit 26 Skins in 5 Seltenheitsstufen, Karten-Rechner, Bust- und Flip-7-Knopf, Sounds (abschaltbar), Siegerehrung mit Konfetti, Tabelle mit Korrektur, Statistik, Verlaufsdiagramm, Bestenliste. Läuft nach dem ersten Öffnen auch offline und lässt sich als App auf dem Home-Bildschirm installieren.
 
 ## Auf GitHub Pages veröffentlichen
 
